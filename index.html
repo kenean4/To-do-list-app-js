@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-do list</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/987207e80e.js" crossorigin="anonymous"></script>
+    </head>
+
+<body>
+    <div class="container">
+        <div class="navBar">
+            <div class="searchBar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search for your tasks">
+            </div>
+            <div class="navBar-icons">
+                <button class="icn-buttons"> 
+                   <i class="fa-solid fa-bell"></i>
+                   <span class="notif-dot"></span> 
+                </button>
+                <button class="icn-buttons"><i class="fa-regular fa-circle-user"></i></button>
+            </div>
+        </div> 
+        <div class="main">
+            <div class="greeting">Good morning</div>
+            <h1 class="h1-add">
+                You've got&nbsp; <span class="taskCount" id="task-count"></span> &nbsp;tasks left
+               <button class="add-btn" onclick="openModal()">
+                   <i class="fa-solid fa-plus"></i>
+                   Add New
+               </button>
+            </h1>
+            <div classs="section">
+                <div class="section-heading" id ="onHold"> On Hold</div>
+                <div class="task-item">
+                    <div class="task-checkbox" onclick="toggleTask()"></div>
+                        <div class="task-title">Make a todo</div>
+
+                        <div class="priority-badge">
+                            <i class=" fas fa-circle" style="font-size: 0.7em"></i>
+                        </div>
+                        <div class="status-badge"></div>
+                        <button class="edit" onclick="editTask()" >
+                            <span class="task-icon"><i class="fas fa-pen" ></i> </span>
+                        </button>
+                        <button class="delete" onclick="deleteTask()">
+                            <span class="task-icon"><i class="fas fa-trash"></i> </span>
+                        </button>
+
+                    
+                </div>
+                
+            </div>
+            <div class="section">
+                Completed
+                <span>Inactive</span>
+            </div>
+
+        </div>
+    </div>
+</body>

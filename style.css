@@ -1,0 +1,171 @@
+.container{
+    background-color: rgb(254, 232, 242);
+    padding-top:40px;
+    padding-left:10px;
+    padding-right:10px
+}
+
+.navBar{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 12px
+}
+
+.searchBar{
+    position:relative;
+    display:flex;
+    height: 30px;
+    margin-bottom:5px;
+
+}
+.searchBar input {
+    width: clamp(2px, 45vw, 500px);
+    border-radius: 15px;
+    transition:all 0.3s ease;
+    outline: none;
+    border:1px solid white ;
+    padding-left:40px;
+}
+
+.searchBar input:focus{
+    border-color:rgb(159, 83, 159);
+}
+
+.searchBar input:hover{
+    border-color:rgb(159, 83, 159);
+}
+
+.fa-magnifying-glass{
+    position:absolute;
+    top:50%;
+    left:12px;
+    color: grey;
+    transform:translateY(-50%);
+    
+}
+
+.fa-magnifying-glass:hover{
+    transform:translateY(-55%) translateX(-5%);
+
+}
+
+.navBar-icons{
+    position:relative;
+    display: flex;
+    gap:1px;
+}
+
+.icn-buttons{
+    border: 0px;
+    background-color: rgb(254, 232, 242);
+
+
+}
+
+.icn-buttons:hover{
+    position:relative;
+    transform:translateY(-10%);
+    color: rgb(115, 114, 114);
+}
+
+.notif-dot{
+    position:absolute;
+    background: red;
+    height:6px;
+    width:6px;
+    border-radius:50px;
+
+}
+
+.main h1{
+    position:relative;
+    font-size: clamp(0.6em, 5.5vw, 8em);
+    padding-bottom: 20px;
+    left: 18%;
+}
+
+.add-btn{
+    position: relative;
+    border:0px;
+    color:white;
+    border-radius:15px;
+    padding:8px;
+    background:rgb(123, 16, 205);
+    transform:translateY(-15%);
+}
+
+.greeting{
+    position:relative;
+    left:30%;
+    font-size: clamp(0.4em, 4vw, 6em);
+    color: rgb(236, 112, 166);
+
+}
+.section{
+    margin-bottom:40px;
+}
+.section-heading{
+    font-size: 22px;
+    margin: 15px;
+}
+.task-item{
+    display:flex;
+    flex:1;
+    padding:15px;
+    margin-bottom: 15px;
+    border-radius:15px;
+    gap:8px;
+    box-shadow: 0 2px 8px rgb(0, 0, 0,0.5);
+
+}
+
+.task-item button{
+    border: 0px;
+    background-color: rgb(254, 232, 242);
+    font-size:10px;
+    transition: 0.5s ease all;
+}
+.task-icon{
+    color: rgb(254, 232, 242);
+}
+.task-item:hover {
+    transform: translateX(2px) translateY(-1px);
+    box-shadow: 0 4px 12px rgb(0, 0, 0,0.4);
+    .task-icon{
+        color:rgb(123, 122, 122);
+        transition: all 0.8s ease;
+
+    }
+}
+.task-title{
+    margin-right: 35px;
+}
+.task-checkbox{
+    height:12px; 
+    width:12px;
+    border:2px solid rgb(234, 137, 200);
+    border-radius:5px;
+    transform: translateY(5%);
+    transition: all 0.3s ease;
+
+}
+.task-checkbox.completed{
+    background:rgb(234, 137, 200);
+}
+.task-title.completed{
+    text-decoration: line-through;
+    color: rgb(158, 157, 157);
+}
+.status-badge{
+    height:10px;
+    width: 30px;
+    border-radius:4px;
+    background: black;
+    transform:translateY(50%)
+
+}
+.status-pending{
+    background:yellow;
+    color:yellow;
+
+}
