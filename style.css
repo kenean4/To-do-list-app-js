@@ -105,8 +105,25 @@
     margin-bottom:40px;
 }
 .section-heading{
+    display:flex;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 20px;
+}
+.section-heading h2{
     font-size: 22px;
+    font-weight:600;
     margin: 15px;
+}
+.badge{
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    font-weight: 600;
+}
+.badge-inactive{
+    background:#fdd5d5;
+    color:#dc2626;
 }
 .task-item{
     display:flex;
@@ -132,13 +149,13 @@
     transform: translateX(2px) translateY(-1px);
     box-shadow: 0 4px 12px rgb(0, 0, 0,0.4);
     .task-icon{
-        color:rgb(123, 122, 122);
+        color:rgb(76, 75, 75);
         transition: all 0.8s ease;
 
     }
 }
 .task-title{
-    margin-right: 35px;
+    margin-right: 150px;
 }
 .task-checkbox{
     height:12px; 
@@ -157,15 +174,45 @@
     color: rgb(158, 157, 157);
 }
 .status-badge{
-    height:10px;
-    width: 30px;
-    border-radius:4px;
-    background: black;
-    transform:translateY(50%)
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    font-weight: 600;
+    
 
 }
 .status-pending{
-    background:yellow;
-    color:yellow;
+    background:#fef3c7;
+    color:rgb(245, 158, 11);
+}
+.status-progress{
+    background:#dbeafe;
+    color:rgb(59, 130, 246);
 
+}
+.status-completed{
+    background:rgb(209, 250, 229);
+    color:rgb(16, 185, 129);
+
+}
+.status-cancelled{
+    background:rgb(254, 243, 199);
+    color:rgb(239, 68, 68);
+}
+.priority-badge{
+    display:flex;
+    align-items: center;
+    gap:5px;
+    font-size:12px;
+    margin-right: 20px;
+    font-weight:600
+}
+.priority-critical{
+    color: #dc2626
+}
+.priority-normal{
+    color: #f59e0b;
+}
+.priority-minor{
+    color: #10b981
 }

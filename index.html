@@ -34,15 +34,17 @@
                </button>
             </h1>
             <div classs="section">
-                <div class="section-heading" id ="onHold"> On Hold</div>
-                <div class="task-item">
+                <div class="section-heading" id ="onHold"> <h2>On Hold<h2></h2></div>
+            <div class="task-item">
                     <div class="task-checkbox" onclick="toggleTask()"></div>
                         <div class="task-title">Make a todo</div>
 
-                        <div class="priority-badge">
+                        <div class="status-badge status-pending">pending</div>
+                        <div class="priority-badge priority-critical">
                             <i class=" fas fa-circle" style="font-size: 0.7em"></i>
+                            critical
                         </div>
-                        <div class="status-badge"></div>
+
                         <button class="edit" onclick="editTask()" >
                             <span class="task-icon"><i class="fas fa-pen" ></i> </span>
                         </button>
@@ -55,10 +57,14 @@
                 
             </div>
             <div class="section">
-                Completed
-                <span>Inactive</span>
+                <div class="section-heading"> 
+                   <h2>Completed</h2>
+                    <span class="badge badge-inactive">Inactive</span>
+                </div>
             </div>
 
         </div>
     </div>
+    <script src="index.js"></script>
 </body>
+</html>
