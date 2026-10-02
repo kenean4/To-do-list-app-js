@@ -27,7 +27,7 @@
         <div class="main">
             <div class="greeting">Good morning</div>
             <h1 class="h1-add">
-                You've got&nbsp; <span class="taskCount" id="task-count"></span> &nbsp;tasks left
+                You've got&nbsp; <span class="taskCount" id="task-count"></span> &nbsp;tasks today
                <button class="add-btn" onclick="openModal()">
                    <i class="fa-solid fa-plus"></i>
                    Add New
@@ -77,7 +77,7 @@
     </div>
     <div class="modal" id="taskModal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+           
             <h2 class="modal-title">Add/Edit Task</h2>
             <form id="taskForm">
                 <div class="form-group">
@@ -99,6 +99,10 @@
                         <option value="normal">Normal</option>
                         <option value="critical">Critical</option>
                     </select>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" type="button" onclick="closeModal()">Cancel</button> 
+                    <button class="btn btn-primary" type="submit">Save</button>
                 </div>
                 
 

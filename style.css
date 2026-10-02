@@ -15,11 +15,6 @@ body{
     gap:30px;
     align-items:start;
 }
-@media (max-width: 800px){
-    .container{
-        grid-template-columns: 1fr;
-    }
-}
 
 .navBar{
     display:flex;
@@ -269,4 +264,84 @@ body{
     background:rgba(236, 102, 160, 0.644);
     border-radius:10px;
     transition:width 0.5s ease;
+}
+.modal{
+    position:fixed;
+    display:none;
+    top:25%;
+    left:25%;
+    width:50%;
+    height:50%;
+    z-index:1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items:center;
+    justify-content:center;
+}
+.modal.active{
+    display:flex;
+}
+.modal-content{
+    background-color: #ebf7eb;
+    padding:30px;
+    padding-top:15px;
+    border-radius:20px;
+    width:400px;
+    max-width:90%;
+}
+.modal-content h2{
+    margin-bottom:20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b0b0c;
+}
+.form-group{
+    margin-bottom:15px;
+}
+.form-group label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:600;
+    color:#252c36;
+}
+.form-group input,.form-group select{
+    width:100%;
+    padding:10px;
+    border-radius:7px;
+    border:1px solid #ccc;
+    outline:none;
+    font-size: 14px;
+    transition:all 0.3s ease;
+}
+.form-group input:focus,.form-group select:focus{
+    border:1.3px solid rgb(154, 3, 248);
+}
+.form-group input:hover,.form-group select:hover{
+    border:1.3px solid rgb(154, 3, 248);
+}
+.modal-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:20px;
+}
+.btn{
+    padding:8px 15px;
+    border:0px;
+    border-radius:10px;
+    font-size:14px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+}
+.btn-primary{
+    background:rgba(236, 102, 160, 0.644);
+    color:white;
+}
+.btn:hover{
+    transform:translateY(-5%);
+    box-shadow: 0 4px 12px rgb(0, 0, 0,0.4);
+}
+@media (max-width: 800px){
+    .container{
+        grid-template-columns: 1fr;
+    }
 }
