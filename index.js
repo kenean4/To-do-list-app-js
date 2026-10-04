@@ -24,12 +24,16 @@ function addTask(title, status, priority){
 }
 
 function render(){
-    const list = document.getElementById("taskList");
-    list.innerHTML= "";
+    const activeList = document.getElementById("taskList");
+    const completedList= document.getElementById("completedList");
+    activeList.innerHTML= "";
+    completedList.innerHTML= "";
+
 
     for(const task of tasks){
-        const done= task.status==="completed"
-        list.innerHTML +=
+        const done = task.status==="completed"
+        target = done? completedList: activeList;
+        target.innerHTML +=
     `<div class="task-item">
     <div class="task-checkbox ${done? "completed":""}" id="checkbox${task.id}" onclick="toggleTask(${task.id})"></div>
     <div class="task-title">${task.title}</div>
@@ -117,6 +121,8 @@ function editTask(id){
 editId=id;
 openModal()    
 }
+
+
 
 function updateStats(){
     const completedTasks= tasks.filter(function(task){
