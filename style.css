@@ -90,6 +90,12 @@ body{
     padding-bottom: 20px;
     left: 8%;
 }
+.taskCount{
+    font-size: clamp(0.8em, 5.5vw, 10em);
+    transform: translateY(-60%);
+    color:rgba(185, 75, 123, 0.986);
+
+}
 
 .add-btn{
     position: relative;
@@ -169,7 +175,7 @@ body{
     }
 }
 .task-title{
-    margin-right: 140px;
+    margin-right: 100px;
 }
 .task-checkbox{
     height:12px; 

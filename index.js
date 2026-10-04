@@ -2,6 +2,7 @@ const modal = document.getElementById("taskModal");
 const form= document.getElementById("taskForm");
 const confirmation= document.getElementById("confirmDelete");
 let deleteId = null;
+let editId = null;
 
 let tasks=[];
 let nextId=1;
@@ -37,11 +38,15 @@ function render(){
     <div class="task-title">${task.title}</div>
     <div class="status-badge status-${task.status}"><i class=" fas fa-circle" style="font-size: 0.7em"></i>${task.status}</div>
     <div class="priority-badge priority-${task.priority}"><i class=" fas fa-circle" style="font-size: 0.7em"></i>${task.priority}</div>
+    <button class="edit" onclick="editTask(${task.id})" >
+        <span class="task-icon"><i class="fas fa-pen" ></i> </span>
+    </button>
     <button class="delete" onclick="openConfirmation(${task.id})">
         <span class="task-icon"><i class="fas fa-trash"></i> </span>
     </button>
     </div>`
     }
+   
 }
 
 function openModal(){
@@ -50,6 +55,8 @@ function openModal(){
 
 function closeModal(){
     modal.classList.remove("active");
+    editId = null;
+    form.reset();
 }
 
 form.addEventListener("submit", function (event){
@@ -57,8 +64,17 @@ form.addEventListener("submit", function (event){
     const title = document.getElementById("taskTitle").value;
     const status = document.getElementById("taskStatus").value;
     const priority = document.getElementById("taskPriority").value;
+    if (editId !== null){
+        tasks=tasks.map(function (task){
+            if (task.id===editId){
+                return{...task, title, status, priority};
+            }
+            return task;
+        });
+        editId= null;
+    }
+    else{ addTask(title,status,priority);}
 
-    addTask(title,status,priority);
     render();
     closeModal();
     form.reset();
@@ -77,6 +93,7 @@ function openConfirmation(id){
 }
 function closeConfirmation(){
     confirmation.classList.remove("confirm-active");
+    
 }
 
 function toggleTask(id){
@@ -86,10 +103,22 @@ tasks=tasks.map(function (task){
     
     return task;
 });
-
-
 render()
 }
+
+function editTask(id){
+    const task= tasks.find(function(task){
+        return task.id===id;});
+
+    document.getElementById("taskTitle").value= task.title
+    document.getElementById("taskStatus").value= task.status;
+    document.getElementById("taskPriority").value= task.priority;
+                    
+editId=id;
+openModal()    
+}
+
+
 
 addTask("make a todo","progress","critical" );
 addTask("go to church","pending","normal" );
