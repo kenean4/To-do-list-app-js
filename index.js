@@ -21,6 +21,7 @@ const taskCard = `<div class="task-item">
     </button>
 </div>`;
 
+
 function addTask(title, status, priority){
     const task={ id: nextId++, title, status, priority};
     tasks.push(task);
@@ -46,7 +47,8 @@ function render(){
     </button>
     </div>`
     }
-   
+    updateStats()
+
 }
 
 function openModal(){
@@ -118,7 +120,24 @@ editId=id;
 openModal()    
 }
 
+function updateStats(){
+    const completedTasks= tasks.filter(function(task){
+        return task.status==="completed"
+    }).length;
+    const total= tasks.length;
+    const completionRate=  total===0? 0:Math.round((completedTasks/total)* 100);
+    const pendingTasks=total - completedTasks;
 
+    document.getElementById("completionRate").textContent= completionRate;
+    document.getElementById("totalTasksCount").textContent= tasks.length;
+    document.getElementById("completedTasksCount").textContent= completedTasks;
+    document.getElementById("pendingTasksCount").textContent= pendingTasks;
+    document.getElementById("completionRateFill").style.width = completionRate+"%";
+    document.getElementById("totalTasksFill").style.width = completionRate+"%";
+    document.getElementById("task-count").textContent= pendingTasks;
+
+                    
+}
 
 addTask("make a todo","progress","critical" );
 addTask("go to church","pending","normal" );
