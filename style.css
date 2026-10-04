@@ -158,14 +158,14 @@ body{
     transition: 0.5s ease all;
 }
 .task-icon{
-    color: rgb(254, 232, 242);
+    color: #a8c5a8;
 }
 .task-item:hover {
     transform: translateX(2px) translateY(-1px);
     box-shadow: 0 4px 12px rgb(0, 0, 0,0.4);
     .task-icon{
-        color:rgb(76, 75, 75);
-        transition: all 0.8s ease;
+        color:rgb(0, 0, 0);
+        transition: all 0.3s ease;
     }
 }
 .task-title{
@@ -182,10 +182,10 @@ body{
 }
 .task-checkbox.completed{
     background:rgb(234, 137, 200);
+    .task-title{
+        text-decoration: line-through;
+        color: rgb(158, 157, 157);
 }
-.task-title.completed{
-    text-decoration: line-through;
-    color: rgb(158, 157, 157);
 }
 .status-badge{
     padding:4px 10px;
@@ -348,6 +348,44 @@ body{
     transform:translateY(-5%);
     box-shadow: 0 4px 12px rgb(0, 0, 0,0.4);
 }
+.confirm-delete{
+    display:none;
+    flex-direction:column;
+    position:fixed;
+    padding:5px 15px;
+    padding-bottom:2p;
+    gap:20px;
+    top:50%;
+    left:50%;
+    transform:translateY(-50%) translateX(-50%);
+    width:220px;
+    height:100px;
+    border-radius:20px;
+    z-index:1000;
+    background-color: #eff2efe7;
+    align-items:center;
+    justify-content:center;
+    color:rgb(8, 8, 8);
+    font-size:19px;
+}
+#btnYes{
+    padding:4px 12px;
+    margin-right:10px;
+    width:70px;
+    border-radius:8px;
+    background:rgba(222, 173, 196, 0.8);
+}
+#btnNo{
+    padding:4px 12px;
+    margin-left:10px;
+    width:70px;
+    border-radius:8px;
+    background-color: #b0c6b0;
+}
+.confirm-active{
+    display:flex;
+}
+
 @media (max-width: 800px){
     .container{
         grid-template-columns: 1fr;
