@@ -169,7 +169,7 @@ body{
     }
 }
 .task-title{
-    margin-right: 150px;
+    margin-right: 140px;
 }
 .task-checkbox{
     height:12px; 
@@ -182,7 +182,7 @@ body{
 }
 .task-checkbox.completed{
     background:rgb(234, 137, 200);
-    .task-title{
+    + .task-title{
         text-decoration: line-through;
         color: rgb(158, 157, 157);
 }

@@ -1,6 +1,6 @@
 const modal = document.getElementById("taskModal");
 const form= document.getElementById("taskForm");
-const confirmation= document.getElementById("confirmDelete")
+const confirmation= document.getElementById("confirmDelete");
 let deleteId = null;
 
 let tasks=[];
@@ -30,8 +30,10 @@ function render(){
     list.innerHTML= "";
 
     for(const task of tasks){
+        const done= task.status==="completed"
         list.innerHTML +=
     `<div class="task-item">
+    <div class="task-checkbox ${done? "completed":""}" id="checkbox${task.id}" onclick="toggleTask(${task.id})"></div>
     <div class="task-title">${task.title}</div>
     <div class="status-badge status-${task.status}"><i class=" fas fa-circle" style="font-size: 0.7em"></i>${task.status}</div>
     <div class="priority-badge priority-${task.priority}"><i class=" fas fa-circle" style="font-size: 0.7em"></i>${task.priority}</div>
@@ -77,7 +79,17 @@ function closeConfirmation(){
     confirmation.classList.remove("confirm-active");
 }
 
+function toggleTask(id){
+tasks=tasks.map(function (task){
+    if (task.id==id){
+        return{...task, status: task.status==="completed"? "pending":"completed"}};
+    
+    return task;
+});
 
+
+render()
+}
 
 addTask("make a todo","progress","critical" );
 addTask("go to church","pending","normal" );
