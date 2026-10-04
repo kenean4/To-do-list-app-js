@@ -3,6 +3,8 @@ const form= document.getElementById("taskForm");
 const confirmation= document.getElementById("confirmDelete");
 let deleteId = null;
 let editId = null;
+let greeting=null;
+
 
 let tasks=[];
 let nextId=1;
@@ -20,8 +22,16 @@ const taskCard = `<div class="task-item">
         <span class="task-icon"><i class="fas fa-trash"></i> </span>
     </button>
 </div>`;
-
-
+function updateGreeting(){
+    const time= new Date().getHours();
+    if (time <12){
+        greeting = "Morning";
+    }
+    else if (time>12 && time <18){
+        greeting = "Afternoon";
+    }
+    else {greeting = "Evening"}
+}
 function addTask(title, status, priority){
     const task={ id: nextId++, title, status, priority};
     tasks.push(task);
@@ -48,6 +58,7 @@ function render(){
     </div>`
     }
     updateStats()
+    document.getElementById("greetingTime").textContent= greeting;
 
 }
 
@@ -141,5 +152,6 @@ function updateStats(){
 
 addTask("make a todo","progress","critical" );
 addTask("go to church","pending","normal" );
+updateGreeting();
 render();
        
