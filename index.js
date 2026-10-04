@@ -4,10 +4,10 @@ const confirmation= document.getElementById("confirmDelete");
 let deleteId = null;
 let editId = null;
 let greeting=null;
-
-
 let tasks=[];
 let nextId=1;
+
+
 function updateGreeting(){
     const time= new Date().getHours();
     if (time <12){
@@ -43,7 +43,8 @@ function render(){
     </button>
     </div>`
     }
-    updateStats()
+    updateStats();
+    saveTasks();
     document.getElementById("greetingTime").textContent= greeting;
 
 }
@@ -135,9 +136,17 @@ function updateStats(){
 
                     
 }
-
-addTask("make a todo","progress","critical" );
-addTask("go to church","pending","normal" );
+function saveTasks(){
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+function loadTasks(){
+    const saved= localStorage.getItem("tasks");
+    if(saved){
+    tasks = JSON.parse(saved);
+    nextId= tasks.length? Math.max(tasks.map(function(task){return task.id}))+1:1;
+    }
+}
+loadTasks();
 updateGreeting();
 render();
        
